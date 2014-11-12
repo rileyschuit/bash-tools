@@ -22,6 +22,7 @@ fi
   do
     ssh root@${BIGIPS[$i]} -t 'tmsh save sys ucs /var/local/ucs/$HOSTNAME.`date +"%m-%d-%y"`.ucs'
     scp root@${BIGIPS[$i]}:/var/local/ucs/*`date +"%m-%d-%y"`.ucs ~/backups/
+    ssh root@${BIGIPS[$i]} -t 'rm /var/local/ucs/*`date +"%m-%d-%y"`.ucs'
   done
 
 # delete UCSs that are three weeks old.
