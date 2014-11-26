@@ -14,7 +14,7 @@ if [ "$1" == "setup" ]; then
   ssh-keygen -t rsa
   for i in "${!BIGIPS[@]}"
   do
-    cat .ssh/id_rsa.pub | ssh root@${BIGIPS[$i]} 'cat >> /root/.ssh/authorized_keys'
+    cat ~/.ssh/id_rsa.pub | ssh root@${BIGIPS[$i]} 'cat >> /root/.ssh/authorized_keys'
   done
 fi
 
